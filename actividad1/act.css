@@ -1,0 +1,28 @@
+figure{
+	margin: 0;
+}
+figure img{
+	width: 100%;
+}
+.lugares{
+	display: flex;
+}
+.lugares .dropzone{
+	width: 100%;
+	border: 1px dashed gray;
+	border-radius: 10px;
+	height: 200px;
+}
+.lugares article{
+	width: 50%
+}
+.artefactos{
+	display: flex;
+}
+.artefactos article{
+	width: 20%;
+	border:1px solid gray;
+}
+.draggable{
+	cursor: pointer;
+}
