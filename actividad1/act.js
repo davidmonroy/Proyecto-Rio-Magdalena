@@ -5,39 +5,43 @@ var artefactos = document.querySelectorAll(".draggable")
 ,zonasDescarga = document.getElementsByClassName("dropzone")
 ,idActual = new Number()
 
-function validarDropzone(arreglo,lugarCorrecto) {
+function validarDropzone(contendedor) {
 
-	var correcto = false
+	var lugarCorrecto = contendedor.getAttribute("lugar-data")
+	,contendedorHijos = contendedor.children
+	,correcto = false
 
-	for (var i = 0; i < arreglo.length; i++) {
+	if (contendedorHijos.length == 0){
+		console.log('ingrese por lo menos un hijo');
+	}else{
 
-		var lugaresCorrectosArtefacto = arreglo[i].getAttribute("lugar-data").split(",")
+		for (var i = 0; i < contendedorHijos.length; i++) {
 
-		for (var j = 0; j < lugaresCorrectosArtefacto.length; j++) {
-			if(lugarCorrecto == lugaresCorrectosArtefacto[j]){
-				correcto = true
+			var lugaresCorrectosArtefacto = contendedorHijos[i].getAttribute("lugar-data").split(",")
+
+			for (var j = 0; j < lugaresCorrectosArtefacto.length; j++) {
+				if(lugarCorrecto == lugaresCorrectosArtefacto[j]){
+					correcto = true
+				}
 			}
 		}
+
+		if (correcto){
+			console.log('bien' + lugarCorrecto);
+		}else{
+			console.log('mal'  +lugarCorrecto);
+		}
 	}
-	if (correcto){
-		console.log('bien' + lugarCorrecto);
-	}else{
-		console.log('mal'  +lugarCorrecto);
-	}
+
 }
 
 function validarRespuesta(){
 
 	var  H_ART_dopzoneCasa = document.getElementById("H_ART_dopzoneCasa_js")
-	,H_ART_dopzoneCasaHijos = document.getElementById("H_ART_dopzoneCasa_js").children
-	,casa = H_ART_dopzoneCasa.getAttribute("lugar-data")
+	,H_ART_dopzoneColegio = document.getElementById("H_ART_dopzoneColegio_js")
 
-	var H_ART_dopzoneColegio = document.getElementById("H_ART_dopzoneColegio_js")
-	,H_ART_dopzoneColegioHijos = document.getElementById("H_ART_dopzoneColegio_js").children
-	,colegio = H_ART_dopzoneColegio.getAttribute("lugar-data")
-
-	validarDropzone(H_ART_dopzoneCasaHijos,casa)
-	validarDropzone(H_ART_dopzoneColegioHijos,colegio)
+	validarDropzone(H_ART_dopzoneCasa)
+	validarDropzone(H_ART_dopzoneColegio)
 
 }
 
