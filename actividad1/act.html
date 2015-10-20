@@ -1,41 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 	<meta charset="UTF-8">
 	<title>Actividad</title>
 	<link rel="stylesheet" href="act.css">
+
 </head>
+
 <body>
+
 	<section class="lugares">
-		<article >
+		<article  >
 			<figure>
 				<img src="../../public/img/casa.png" alt="">
 			</figure>
-			<article draggable="true" class="dropzone">
-
-			</article>
+			<h3 class="textoCentrado">Hogar</h3>
+			<article lugar-data="casa" id="H_ART_dopzoneCasa_js" class="dropzone"></article>
 		</article>
 		<article >
 			<figure>
 				<img src="../../public/img/escuela.png" alt="">
 			</figure>
-			<article draggable="true" class="dropzone">
-
-			</article>
+			<h3 class="textoCentrado">Escuela</h3>
+			<article lugar-data="colegio" id="H_ART_dopzoneColegio_js" class="dropzone"></article>
 		</article>
 	</section>
 
 	<section class="artefactos">
-		<article class="draggable" draggable="true">Lorem</article>
-		<article class="draggable" draggable="true">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo est, distinctio porro! At laboriosam ad voluptas fugit, explicabo totam inventore nesciunt sit tempore aut accusamus dolorum neque! Voluptas, cupiditate quo.</article>
-		<article class="draggable" draggable="true">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum sed, eius harum, voluptatum tempore fuga iusto deleniti, magnam earum saepe pariatur r</article>
-		<article class="draggable" draggable="true">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur laborum tempore, consectetur quam quis nemo iure! Fugiat sed, ullam est doloribus modi, optio quod blanditiis qui obcaecati amet consectetur quidem!</article>
-		<article class="draggable" draggable="true">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur invento</article>
+		<article lugar-data="casa,colegio" id="1" class="artefacto draggable" draggable="true">
+			<figure>
+				<img src="../../public/img/artefactos/celular.jpg">
+			</figure>
+		</article>
+		<article lugar-data="casa,colegio" id="2" class="artefacto draggable" draggable="true">
+			<figure>
+				<img src="../../public/img/artefactos/impre.jpg">
+			</figure>
+		</article>
+		<article lugar-data="casa,colegio" id="3" class="artefacto draggable" draggable="true">
+			<figure>
+				<img src="../../public/img/artefactos/portatil.jpg">
+			</figure>
+		</article>
+		<article lugar-data="casa,colegio" id="4" class="artefacto draggable" draggable="true">
+			<figure>
+				<img src="../../public/img/artefactos/usb.jpg">
+			</figure>
+		</article>
+		<article>
+			<button id="H_BTN_btnValidar_js">Como me fue</button>
+		</article>
 	</section>
+
+
 	<section>
 		<h2>lorem</h2>
 		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam doloribus perspiciatis aliquam eius dicta provident quibusdam consectetur voluptate nostrum pariatur dolore inventore veniam hic autem et, atque alias! Sint, non?</p>
 	</section>
+
 	<script src="act.js" type="text/javascript"></script>
+
 </body>
 </html>
