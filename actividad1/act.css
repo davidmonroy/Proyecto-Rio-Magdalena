@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css?family=Lato");
 /* normalize.css v3.0.2 | MIT License | git.io/normalize */
 html {
   font-family: sans-serif; /* 1 */
@@ -179,14 +180,28 @@ td,
 th {
   padding: 0;
 }
-.textoCentrado {
-  text-align: center;
+html {
+  font-size: 16px;
+}
+body {
+  font-family: 'Lato';
 }
 figure {
   margin: 0;
 }
 figure img {
   width: 100%;
+}
+.textoCentrado {
+  text-align: center;
+}
+.centrar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.marginTop {
+  margin-top: 10px;
 }
 .lugares {
   display: flex;
@@ -198,6 +213,9 @@ figure img {
   width: 100%;
   margin: 0;
   display: flex;
+}
+.lugares .dropzone figure {
+  width: 100%;
 }
 .lugares .artefacto {
   width: 20%;
@@ -214,12 +232,85 @@ figure img {
 .artefactos {
   display: flex;
   justify-content: space-between;
+  border: 1px solid #808080;
+  padding: 10px;
 }
 .artefactos .artefacto {
+  border-right: 1px dashed #808080;
   width: 20%;
-  border: 1px solid #808080;
-  margin: 10px;
+  padding: 10px;
+}
+.artefactos .artefacto:last-child {
+  border-right: none;
+}
+.artefactos .artefacto:hover {
+  transition: 2s background-color;
+  background-color: #bfbfbf;
 }
 .draggable {
   cursor: pointer;
+}
+.eliminarArtefacto {
+  animation: 2s eliminar 1 linear;
+}
+.btn {
+  border: none;
+  font-size: 1.3rem;
+  border-radius: 5px;
+  padding: 10px;
+  color: #fff;
+  font-weight: bold;
+}
+.btnAcept {
+  background-color: #77a12e;
+  box-shadow: inset -3px -3px #577f12;
+}
+.btnAcept:hover {
+  transition: 2s background-color, 2s box-shadow;
+  box-shadow: inset -3px -3px #77a12e;
+  background-color: #577f12;
+}
+@-moz-keyframes eliminar {
+  0% {
+    transform: scale(1, 1);
+  }
+  50% {
+    transform: scale(0.5, 0.5);
+  }
+  100% {
+    transform: scale(0, 0);
+  }
+}
+@-webkit-keyframes eliminar {
+  0% {
+    transform: scale(1, 1);
+  }
+  50% {
+    transform: scale(0.5, 0.5);
+  }
+  100% {
+    transform: scale(0, 0);
+  }
+}
+@-o-keyframes eliminar {
+  0% {
+    transform: scale(1, 1);
+  }
+  50% {
+    transform: scale(0.5, 0.5);
+  }
+  100% {
+    transform: scale(0, 0);
+  }
+}
+@keyframes eliminar {
+  0% {
+    transform: scale(1, 1);
+  }
+  50% {
+    transform: scale(0.5, 0.5);
+  }
+  100% {
+    transform: scale(0, 0);
+  }
 }

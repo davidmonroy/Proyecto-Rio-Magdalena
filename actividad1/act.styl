@@ -1,7 +1,11 @@
+@import url(https://fonts.googleapis.com/css?family=Lato);
 @import "normalize.styl"
 
-.textoCentrado
-	text-align center
+html
+	font-size 16px
+
+body
+	font-family 'Lato'
 
 figure
 	margin 0
@@ -9,6 +13,17 @@ figure
 figure
 	img
 		width 100%
+
+.textoCentrado
+	text-align center
+
+.centrar
+	display flex
+	justify-content center
+	align-items center
+
+.marginTop
+	margin-top 10px
 
 .lugares
 	display flex
@@ -19,6 +34,8 @@ figure
 		width 100%
 		margin 0
 		display flex
+		figure
+			width 100%
 	.artefacto
 		width 20%
 	article
@@ -32,10 +49,44 @@ figure
 .artefactos
 	display flex
 	justify-content space-between
+	border 1px solid gray
+	padding 10px
 	.artefacto
+		border-right 1px dashed gray
 		width 20%
-		border 1px solid gray
-		margin 10px
+		padding 10px
+		&:last-child
+			border-right none
+		&:hover
+			transition 2s background-color
+			background-color #BFBFBF
 
 .draggable
 	cursor pointer
+
+.eliminarArtefacto
+	animation 2s eliminar 1 linear
+
+@keyframes eliminar
+	0%
+		transform scale(1,1)
+	50%
+		transform scale(.5,.5)
+	100%
+		transform scale(0,0)
+
+.btn
+	border none
+	font-size 1.3rem
+	border-radius 5px
+	padding 10px
+	color white
+	font-weight bold
+	&Acept
+		background-color #77A12E
+		box-shadow inset -3px -3px #577F12
+		&:hover
+			transition 2s background-color, 2s box-shadow
+			box-shadow inset -3px -3px #77A12E
+			background-color #577F12
+

@@ -32,7 +32,6 @@ function validarDropzone(contendedor) {
 			console.log('mal'  +lugarCorrecto);
 		}
 	}
-
 }
 
 function validarRespuesta(){
@@ -52,6 +51,17 @@ function inicioArastre(evento) {
 	evento.dataTransfer.setData('text/html',this.outerHTML)
 }
 
+function eliminarArtefacto(){
+	var nodoPadre = this.parentNode
+	this.classList.add("eliminarArtefacto")
+
+	var nodoActual = this
+
+	setTimeout(function(){
+		nodoPadre.removeChild(nodoActual)
+	}, 2000)
+}
+
 function zoanArastre(evento){
 
 	evento.stopPropagation()
@@ -62,7 +72,6 @@ function zoanArastre(evento){
 	for (var i = 0; i < hijosActuales.length; i++) {
 		if(hijosActuales[i].id == idActual){
 			seguir = false
-			break
 		}
 	}
 
@@ -70,8 +79,16 @@ function zoanArastre(evento){
 	if (dragSrcEl != this){
 		if (seguir){
 			this.innerHTML += evento.dataTransfer.getData('text/html')
+			this.lastChild.addEventListener("click", eliminarArtefacto)
 		}
 	}
+
+	hijosActuales = this.children
+
+	for (var i = 0; i < hijosActuales.length; i++) {
+		hijosActuales[i].addEventListener("click", eliminarArtefacto)
+	};
+
 	return false
 }
 
