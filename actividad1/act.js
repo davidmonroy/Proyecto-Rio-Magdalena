@@ -1,6 +1,7 @@
 
 var artefactos = document.querySelectorAll(".draggable")
 ,H_BTN_btnValidar = document.getElementById("H_BTN_btnValidar_js")
+,h_s_estado = document.getElementById("h_s_estado_js")
 ,zonasDescarga = document.getElementsByClassName("dropzone")
 ,artefactos = document.getElementById("h_s_contenedorArtefactos_js").children
 ,dragSrcEl = null
@@ -27,7 +28,21 @@ function validarDropzone(contendedor) {
 	,contadorResBien = 0
 
 	if (contendedorHijos.length == 0){
-		console.log('ingrese por lo menos un hijo');
+
+		var article =document.createElement("article")
+		,mensaje =document.createElement("p")
+
+		mensaje.innerText = "Relacione por lo menos un artefacto."
+
+		article.classList.add("pasaste","mensaje")
+		article.appendChild(mensaje)
+
+		h_s_estado.appendChild(article)
+
+		setTimeout(function(){
+			h_s_estado.removeChild(article)
+		}, 3000)
+
 		return -1
 	}else{
 
@@ -44,16 +59,12 @@ function validarDropzone(contendedor) {
 			}
 		}
 
-		if (correcto){
-			console.log('bien' + lugarCorrecto);
-		}else{
-			console.log('mal'  +lugarCorrecto);
-		}
 		return contadorResBien
 	}
 }
 
 function validarRespuesta(){
+
 	var pocentajeExito = 0.8
 
 	var  H_ART_dopzoneCasa = document.getElementById("H_ART_dopzoneCasa_js")
@@ -66,14 +77,51 @@ function validarRespuesta(){
 		var repuestasBien = validacionCasa + validacionColegio
 		,maximoRespuestasBien = numeroMaximoResBienCasa + numeroMaximoResBienColegio
 
-		if (repuestasBien >= Math.round(maximoRespuestasBien*pocentajeExito )){
-			console.log('pasaste');
-		}else{
-			console.log('perdio');
+		var article =document.createElement("article")
+		,estado =document.createElement("h2")
+		,resBien =document.createElement("p")
+		,resMal =document.createElement("p")
 
+		article.classList.add("mensaje")
+		article.id = "mensaje_js"
+
+
+		if (repuestasBien >= Math.round(maximoRespuestasBien*pocentajeExito )){
+			article.classList.add("pasaste")
+			estado.innerText = "Pasaste"
+			this.disabled = true
+		}else{
+			article.classList.add("perdiste");
+			estado.innerText = "Perdio"
+			this.disabled = true
 		}
+		resBien.innerText = "Respuestas Correcta: " + repuestasBien
+		resMal.innerText = "Respuestas Incorrectas: " + (maximoRespuestasBien-repuestasBien)
+
+		article.appendChild(estado)
+		article.appendChild(resBien)
+		article.appendChild(resMal)
+		botonReiniciar = document.createElement("button")
+		botonReiniciar.innerText = "Reiniciar"
+		botonReiniciar.classList.add("btn","btnAcept","btninline")
+		botonReiniciar.addEventListener("click", reiniciarActivcidad)
+
+		h_s_estado.appendChild(article)
+		h_s_estado.appendChild(botonReiniciar)
 	}
 
+}
+
+function reiniciarActivcidad(){
+	while(H_ART_dopzoneCasa_js.hasChildNodes()){
+		H_ART_dopzoneCasa_js.removeChild(H_ART_dopzoneCasa_js.firstChild)
+	}
+	while(H_ART_dopzoneColegio_js.hasChildNodes()){
+		H_ART_dopzoneColegio_js.removeChild(H_ART_dopzoneColegio_js.firstChild)
+	}
+	H_BTN_btnValidar.disabled = false
+	h_s_estado_js.removeChild(document.getElementById("mensaje_js"))
+	h_s_estado_js.removeChild(this)
 }
 
 function inicioArastre(evento) {

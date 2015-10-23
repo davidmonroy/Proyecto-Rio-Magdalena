@@ -199,6 +199,7 @@ figure img {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
 }
 .marginTop {
   margin-top: 10px;
@@ -211,6 +212,20 @@ figure img {
   content: "Descarga el artefacto aqui.";
   position: absolute;
   bottom: 0;
+}
+.pasaste {
+  background-color: #008000;
+}
+.perdiste {
+  background-color: #f00;
+}
+.mensaje {
+  text-align: center;
+  padding: 10px 0;
+  margin: 0 auto;
+  width: 200px;
+  border-radius: 20px;
+  margin-top: 10px;
 }
 .lugares {
   display: flex;
@@ -278,6 +293,15 @@ figure img {
   transition: 2s background-color, 2s box-shadow;
   box-shadow: inset -3px -3px #77a12e;
   background-color: #577f12;
+}
+.btnAcept:disabled {
+  background-color: #a6a6a6;
+  box-shadow: inset -3px -3px #fff;
+}
+.btninline {
+  width: 20%;
+  margin: 0 30%;
+  margin-top: 10px;
 }
 @-moz-keyframes eliminar {
   0% {
