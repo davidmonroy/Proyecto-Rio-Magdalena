@@ -184,7 +184,22 @@ function dragleave(){
 
 for (var index = 0; index < artefactos.length; index++) {
 	artefactos[index].addEventListener("dragstart",inicioArastre,false)
+	artefactos[index].addEventListener("touchmove", inicioArastreTouch,false)
 }
+
+function inicioArastreTouch(evento) {
+
+	var touch = event.targetTouches[0];
+
+	draggable.style.left = touch.pageX-25 + 'px';
+	draggable.style.top = touch.pageY-25 + 'px';
+
+	event.preventDefault();
+}
+
+
+
+
 
 for (var index = 0; index < zonasDescarga.length; index++) {
 	zonasDescarga[index].addEventListener("drop",zoanArastre,false)
