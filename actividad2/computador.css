@@ -4,13 +4,15 @@ body {
 input {
   outline: none;
 }
+.displayFlex {
+  display: flex;
+}
 .container {
-  width: 680px;
-  margin: 0px auto;
   position: relative;
   transform: scale(0.6);
 }
-.parteUno {
+.parteUno,
+.parteDos {
   display: flex;
   justify-content: center;
 }
@@ -82,7 +84,7 @@ input {
   position: absolute;
   margin-left: 21px;
   bottom: 160px;
-  right: 20px;
+  right: 110px;
 }
 .btnPowerMonitor:checked {
   background-color: #008000;
@@ -132,12 +134,15 @@ input {
 }
 .conectorEnergia:checked,
 .conectorImagen:checked {
-  transform: translateX(-20px);
+  transform: translateX(-11px);
 }
 .conectorImagen {
   background-color: #00f;
   height: 40px;
   width: 50px;
+  position: absolute;
+  right: -65px;
+  top: 82px;
 }
 .conectorImagen:before {
   content: "";
@@ -151,6 +156,7 @@ input {
 .conectorEnergia {
   width: 60px;
   height: 40px;
+  align-self: center;
 }
 .conectorEnergia:before {
   margin-top: 10%;
@@ -197,12 +203,7 @@ input {
   margin: 0 auto;
   margin-bottom: 5px;
   display: flex;
-}
-.teclado .teclas i {
-  width: 5%;
   background-color: #000;
-  height: 100%;
-  margin: 0px 2px;
 }
 .teclado .teclas:first-child {
   margin-top: 10px;

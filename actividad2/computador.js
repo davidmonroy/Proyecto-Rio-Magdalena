@@ -5,49 +5,85 @@ var conectorEnergia = document.getElementById("conectorEnergia_js")
 ,monitor = document.getElementById("monitor_js")
 
 var computadorEncendido = false
+var monitorConSenal = false
 
-btnPower.addEventListener("click", verificarEnergia)
+//btnPower.addEventListener("click", verificarEnergia)
+btnPower.addEventListener("click", encederComputador)
+conectorEnergia.addEventListener("change", verificarEnergia)
+conectorImagen.addEventListener("change", verificarImagen)
 btnPrenderMonitor.addEventListener("change", verificarConexiones)
 
 function verificarEnergia(){
 	if (conectorEnergia.checked){
-		btnPower.addEventListener("click", encederComputador)
-		this.classList.remove("apagado")
-		this.classList.add("encendido")
-		console.log('conectado');
-		this.click()
 		computadorEncendido = true
 	}else{
-		this.classList.remove("encendido")
-		this.classList.add("apagado")
-		btnPower.removeEventListener("click", encederComputador)
-		console.log('desconectado');
+		computadorEncendido = false
+		btnPower.classList.add("apagado")
+		btnPower.classList.remove("encendido")
+	}
+}
+function verificarImagen(){
+	if (btnPrenderMonitor.checked){
+
+		if (conectorImagen.checked){
+			monitorConSenal = true
+			if (computadorEncendido){
+				monitor.classList.add("withSignal")
+				monitor.classList.remove("noSignal")
+			}
+		}else{
+			monitorConSenal = false
+
+			if (computadorEncendido){
+
+				monitor.classList.remove("withSignal")
+				monitor.classList.add("noSignal")
+			}
+
+		}
 	}
 }
 
 function encederComputador(){
-	console.log('encendiendo');
+	if (conectorEnergia.checked){
+		btnPower.classList.toggle("apagado")
+		btnPower.classList.toggle("encendido")
+	}
 
+/*
+		console.log('conectado');
+		computadorEncendido = true
+	}else{
+		btnPower.classList.remove("encendido")
+		btnPower.classList.add("apagado")
+		console.log('desconectado');
+		computadorEncendido = false
+	}
+	*/
 }
 function verificarConexiones(){
-	if (btnPrenderMonitor.checked){
 
-		if (computadorEncendido){
-			console.log('listo');
+	if (this.checked){
+		console.log('monitor encendido');
+	}else{
+
+		monitor.classList.remove("withSignal")
+		monitor.classList.remove("noSignal")
+	}
+
+	if (computadorEncendido){
+		if (btnPrenderMonitor.checked){
+
 			if (conectorImagen.checked){
-				console.log('listo');
 				monitor.classList.add("withSignal")
 			}else{
-				console.log('computador de conexion a imagen');
 				monitor.classList.remove("withSignal")
 				monitor.classList.add("noSignal")
 			}
 		}else{
-			console.log('computador sin energia');
 
 		}
 	}else{
-		monitor.classList.remove("noSignal")
-
+		btnPrenderMonitor.checked = false
 	}
 }
