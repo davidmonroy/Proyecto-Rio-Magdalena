@@ -1,0 +1,10 @@
+.simbolo {
+  display: flex;
+  margin-bottom: 10px;
+}
+.simbolo article {
+  border: 1px solid #808080 !important;
+  width: 100px;
+  height: 100px;
+  margin-right: 10px;
+}
