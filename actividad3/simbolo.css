@@ -8,3 +8,10 @@
   height: 100px;
   margin-right: 10px;
 }
+.simbolo article figure {
+  height: 100%;
+  margin: 0;
+}
+.simbolo article figure img {
+  width: 100%;
+}
