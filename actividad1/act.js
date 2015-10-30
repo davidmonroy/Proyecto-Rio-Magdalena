@@ -143,8 +143,8 @@ function eliminarArtefacto(){
 }
 
 function zoanArastre(evento){
-
-	evento.stopPropagation()
+	evento.preventDefault()
+	//evento.stopPropagation()
 	var seguir = true
 	this.classList.toggle("descargaEnZona")
 	var hijosActuales = this.children
