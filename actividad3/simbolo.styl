@@ -1,13 +1,46 @@
+@import url(https://fonts.googleapis.com/css?family=Lato);
+@import "normalize.styl"
+
+body
+	font-family 'Lato'
+	user-select none
+	-webkit-user-select none
+
 .simbolo
 	display flex
 	margin-bottom 10 px
 	article
-		border 1px solid gray !important
+		border 1px solid gray
 		width 100px
 		height 100px
 		margin-right 10px
+		text-align center
+		&:first-child
+			border none !important
 		figure
 			height 100%
 			margin 0
 			img
 				width 100%
+				
+.btn
+	border none
+	font-size 1.3rem
+	border-radius 5px
+	padding 10px
+	color white
+	font-weight bold
+	&Acept
+		background-color #77A12E
+		box-shadow inset -3px -3px #577F12
+		&:hover
+			transition 2s background-color, 2s box-shadow
+			box-shadow inset -3px -3px #77A12E
+			background-color #577F12
+		&:disabled
+			background-color #A6A6A6
+			box-shadow inset -3px -3px #FFFFFF
+	&inline
+		width 20%
+		margin 0 30%
+		margin-top 10px
