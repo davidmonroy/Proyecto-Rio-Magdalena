@@ -1,12 +1,19 @@
-var respuestas = document.querySelectorAll(".respuesta")
-,numeroMaxBien = 0
-,numeroMaxMal = 0
+var respuestas = document.querySelectorAll(".clickable")
+,resBien = 0
+,resMal = 0
+for(i=0; i<respuestas.length; i++){
+	respuestas[i].addEventListener("click", validarRes)
+}
 
-for (var i = 0; i < respuestas.length; i++) {
-	if(respuestas[i].getAttribute("resp-data").indexOf("bien") != -1){
-		numeroMaxBien += 1
+
+function validarRes(){
+	var res = this.getAttribute("resp-data")
+	if(res == "bien"){
+		resBien += 1
+		console.log("bien")
 	}
-	if(respuestas[i].getAttribute("resp-data").indexOf("mal") != -1){
-		numeroMaxMal += 1
+	if(res == "mal"){
+		resMal += 1
+		console.log("mal")
 	}
 }
